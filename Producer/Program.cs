@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using RabbitMQ.Client;
+using System.Threading.Tasks;
 
 var factory = new ConnectionFactory { HostName = "localhost" };
 
@@ -15,10 +16,22 @@ channel.QueueDeclare(
     autoDelete: false,
     arguments: null);
 
-var message = "This is my first Message";
+var random = new Random();
 
-var encodedMessage = Encoding.UTF8.GetBytes(message);
+var messageId = 1;
+while (true)
+{
+    var PublishingTime = random.Next(1, 4);
 
-channel.BasicPublish("", "letterbox", null, encodedMessage);
+    var message = $"sending messageId: {messageId}";
 
-Console.WriteLine($"Published message: {message}");
+    var encodedMessage = Encoding.UTF8.GetBytes(message);
+
+    channel.BasicPublish("", "letterbox", null, encodedMessage);
+
+    Console.WriteLine($"Published message: {message}");
+
+    Task.Delay(TimeSpan.FromSeconds(PublishingTime)).Wait();
+
+    messageId++;
+}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -17,15 +18,21 @@ channel.QueueDeclare(
     autoDelete: false,
     arguments: null);
 
+channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);//Can be continuous
+
 var consumer = new EventingBasicConsumer(channel);
+var random = new Random();
 
 consumer.Received += (Model, ea) =>
 {
+    var processingTime = random.Next(1, 6);
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
-    System.Console.WriteLine($"Message Received: {message}");
+    System.Console.WriteLine($"Message Received: {message} will take {processingTime} to process");
+    Task.Delay(TimeSpan.FromSeconds(processingTime)).Wait();
+    channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
 };
 
-channel.BasicConsume(queue: "letterbox", autoAck: true, consumer: consumer);
+channel.BasicConsume(queue: "letterbox", autoAck: false, consumer: consumer);
 
 System.Console.ReadKey();
