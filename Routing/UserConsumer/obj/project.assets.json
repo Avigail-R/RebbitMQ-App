@@ -111,11 +111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1\\RebbitMQ-App\\Routing\\AnalyticsConsumer\\Consumer.csproj",
+      "projectUniqueName": "C:\\Users\\1\\RebbitMQ-App\\Routing\\UserConsumer\\Consumer.csproj",
       "projectName": "Consumer",
-      "projectPath": "C:\\Users\\1\\RebbitMQ-App\\Routing\\AnalyticsConsumer\\Consumer.csproj",
+      "projectPath": "C:\\Users\\1\\RebbitMQ-App\\Routing\\UserConsumer\\Consumer.csproj",
       "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1\\RebbitMQ-App\\Routing\\AnalyticsConsumer\\obj\\",
+      "outputPath": "C:\\Users\\1\\RebbitMQ-App\\Routing\\UserConsumer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",

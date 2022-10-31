@@ -8,13 +8,22 @@ using var connection = factory.CreateConnection();
 
 using var channel = connection.CreateModel();
 
-channel.ExchangeDeclare(exchange: "myRoutingExchange", ExchangeType.Direct);
+channel.ExchangeDeclare(exchange: "myTopicExchange", ExchangeType.Topic);
 
 
-var message = "This message needs to be routed";
+var userPaymentMessage = "A european user paid for something";
 
-var encodedMessage = Encoding.UTF8.GetBytes(message);
+var userPaymentBody = Encoding.UTF8.GetBytes(userPaymentMessage);
 
-channel.BasicPublish("myRoutingExchange", "both", null, encodedMessage);
+channel.BasicPublish(exchange: "myTopicExchange", "user.europe.payments", null, userPaymentBody);
 
-Console.WriteLine($"Published message: {message}");
+Console.WriteLine($"Published message: {userPaymentMessage}");
+
+
+var businessOrderMessage = "A european  business ordered goods";
+
+var businessOrderBody = Encoding.UTF8.GetBytes(businessOrderMessage);
+
+channel.BasicPublish(exchange: "myTopicExchange", "business.europe.order", null, businessOrderBody);
+
+Console.WriteLine($"Published message: {businessOrderMessage}");

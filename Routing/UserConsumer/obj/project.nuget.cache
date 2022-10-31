@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4Gu0kGqdVMMRnRgTGpZBULcH76w3tHaynVCsvoV0Nf8W5mJINTSVy87sDKxoXEjQ02jvvpLzK9pYU53nuCvDVA==",
+  "dgSpecHash": "ChtmlVTayodLjFztdcBN80MTlnuzbmd1UY7gT/2Ju2wo0HPDPA0y2gEAo5/cHOKVFT+vOcemnRt3miRH7pTsdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\1\\RebbitMQ-App\\Routing\\AnalyticsConsumer\\Consumer.csproj",
+  "projectFilePath": "C:\\Users\\1\\RebbitMQ-App\\Routing\\UserConsumer\\Consumer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
     "C:\\Users\\1\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",

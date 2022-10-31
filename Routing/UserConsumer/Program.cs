@@ -17,8 +17,6 @@ var queueName = channel.QueueDeclare().QueueName;
 channel.QueueBind(queue: queueName, exchange: "myTopicExchange",
  routingKey: "user.#");
 
-
-
 var consumer = new EventingBasicConsumer(channel);
 
 consumer.Received += (Model, ea) =>
